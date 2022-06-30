@@ -1,11 +1,27 @@
 import { Button } from "@material-ui/core";
 import React from "react";
 import "./Login.css"
+import { auth } from "./firebase";
+import { signInWithPopup,  GoogleAuthProvider} from "firebase/auth";
+import { actionType } from "./reducer";
+import { useStateValue } from './StateProvider';
 
 
 function Login() {
-    const signIn = () => {
-
+    const [state, dispatch] = useStateValue();
+        
+     const signIn = () => {
+        const provider = new GoogleAuthProvider();
+        signInWithPopup(auth, provider)
+        .then((result) => {
+            dispatch({
+                type: actionType.SET_USER,
+                user: result.user,
+            })
+            console.log(result);})
+        .catch((error) => alert(error.message));
+        
+    
     };
     return (
         <div className="login">
@@ -26,3 +42,5 @@ function Login() {
     );
 }
  export default Login;
+
+ 

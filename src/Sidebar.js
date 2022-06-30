@@ -8,10 +8,15 @@ import ChatIcon from '@material-ui/icons/Chat';
 import StorefrontIcon from '@material-ui/icons/Storefront';
 import VideoLibraryIcon from '@material-ui/icons/VideoLibrary';
 import ExpandMoreOutlined from '@material-ui/icons/ExpandMoreOutlined';
+import { useStateValue } from "./StateProvider";
 
 function Sidebar() {
+    const [{ user }, dispatch] = useStateValue();
     return ( <div className="sidebar">
-            <SidebarRow  src="https://image.cnbcfm.com/api/v1/image/106569797-1591649109683gettyimages-1032942656.jpeg?v=1597932630" title="Sonny Sangha" />
+            <SidebarRow  
+                src={user.photoURL}
+                title={user.displayName} 
+            />
             <SidebarRow Icon={LocalHospitalIcon} title="Covid-19 Information Center" />
             <SidebarRow Icon={EmojiFlagsIcon} title="Pages" />
             <SidebarRow Icon={PeopleIcon} title="Friends" />
