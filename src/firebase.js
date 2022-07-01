@@ -6,14 +6,17 @@ import { getFirestore } from "firebase/firestore";
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAsptm551ffRcg7uSIJciaCi0-18CgKviY",
-  authDomain: "facebook-clone-48a01.firebaseapp.com",
-  databaseURL: "https://facebook-clone-48a01-default-rtdb.firebaseio.com",
-  projectId: "facebook-clone-48a01",
-  storageBucket: "facebook-clone-48a01.appspot.com",
-  messagingSenderId: "633473105012",
-  appId: "1:633473105012:web:72c63920c057d1d9602521",
-  measurementId: "G-9MZKE8VF5K"
+
+        apiKey: process.env.REACT_APP_API_KEY,
+        authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+        databaseURL: process.env.REACT_APP_DATABASEURL,
+        projectId: process.env.REACT_APP_PROJECT_ID,
+        storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+        messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+        appId: process.env.REACT_APP_APP_ID,
+        measurementId: process.env.REACT_APP_MEASUREMENTID,
+
+   
 
 };
 const firebaseApp = initializeApp(firebaseConfig);
