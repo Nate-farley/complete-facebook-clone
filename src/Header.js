@@ -60,7 +60,7 @@ function Header() {
            <div className="header__right">
                 <div className="header__info">
 
-                 <Avatar  src={user.photoURL} />
+                 <Avatar src={user.photoURL} />
                 <h4>{user.displayName}</h4>
                 </div>
            
